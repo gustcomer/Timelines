@@ -48,4 +48,19 @@ https://guides.github.com/introduction/git-handbook/
 para jogar seu codigo no github, melhor o repositorio estar vazio
 para instalar o git e habilitar > git na command line, 
 https://git-scm.com/downloads
-se ja tem git instalado, para atualizar usar
+se ja tem git instalado, para atualizar usar github
+
+…or create a new repository on the command line
+echo "# Timelines" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/gustcomer/Timelines.git
+git push -u origin master
+
+…or push an existing repository from the command line
+git remote add origin https://github.com/gustcomer/Timelines.git
+git push -u origin master
+
+se quiser remover alguma coisa do remote origin
+> git remote rm origin
