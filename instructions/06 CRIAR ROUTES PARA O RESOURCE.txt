@@ -1,0 +1,15 @@
+05 CRIAR ROUTES PARA O RESOURCE
+//um atalho é
+Route::resource('projects', 'ProjectsController');
+/*
+Route::get('/projects', 'ProjectsController@index');
+Route::get('/projects/create', 'ProjectsController@create');
+Route::get('/projects/{project}', 'ProjectsController@show');
+Route::post('/projects', 'ProjectsController@store');
+Route::get('/projects/{project}/edit', 'ProjectsController@edit');
+Route::patch('/projects/{project}', 'ProjectsController@update');
+Route::delete('/projects/{project}', 'ProjectsController@destroy');
+*/
+- criar o router de resource
+criar o controller de resource, completasso com as 7 requisiçoes e ao mesmo tempo ir criando as views
+> php artisan make:controller -r PontosController

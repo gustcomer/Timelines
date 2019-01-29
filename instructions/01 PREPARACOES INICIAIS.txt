@@ -1,0 +1,11 @@
+01 PREPARAÇÕES INICIAIS
+
+- O primeiro passo é criar o projeto inicial. ir até c:/projetos e
+> laravel new Timeline
+- para acessar o site, ir até o diretorio c:/projetos/Timeline e digitar
+> php artisan serve
+- acessar o site via 
+> localhost:8000
+- tirar aquela estrutura básica do laravel 
+-- criar uma layout propria (tira de 04)
+-- criar uma welcome page

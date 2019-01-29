@@ -1,0 +1,27 @@
+03 CRIAR O BANCO DE DADOS E AS MIGRATIONS
+- criar o banco de dados [PHP 11]
+- abrir o arquivo .env e configurar a parte de mysql
+- precisaria configurar o arquivo database.php, mas na verdade ele puxa tudo do arquivo .env com a função env()
+x criar as tabelas com o migrate, que é um comando do eloquent
+> php artisan make:migration create_papeis_table
+- na verdade é melhor criar os Eloquent models com a opção de gerar uma database migration
+> php artisan make:model Ponto -m
+- se quiser deletar alguma coisa criada acima, deleta o model e a migration
+- Para cada column, escolher um available column type em
+https://laravel.com/docs/5.7/migrations#creating-tables
+	$table->date('data');
+	$table->text('descricao');
+- Para rodar as migrates que ainda não foram rodadas
+> php artisan migrate
+- para escolher o nome da tabela a qual o Model se refere tem que mexer no model, e não na migrate. se não especificar nada ele cria uma tabela com s no final do nome do model
+- antes de rodar o migrate pela primeira vez, adicionar no AppServiceProvider.php
+use Illuminate\Support\Facades\Schema;
+public function boot()
+{
+    Schema::defaultStringLength(191);
+}
+- se quiser dropar todas as tables e rodar tudo, dá um migrate:fresh, util se tiver dado migrate e tiver dado pau. dropar tudo é mais fácil do que dar todos rollbacks
+- se eu mudar uma migrate já rodada, ela não ira rodar apenas com um migrate, terei que dar um fresh
+x para criar um modelo mas com uma tabela com nome especifico, inserir no arquivo do model uma variavel
+protected $table = 'my_flights';
+- depois verifica como faz para usar outra table

@@ -1,0 +1,51 @@
+- A senha do github é
+user: gustcomer@gmail.com
+pass: gust84github
+
+GITHUB GitHub flow is a lightweight, branch-based workflow that supports teams and projects where deployments are made regularly.
+GIT é o version control system, que permite pegar codigo do GITHUB e atualizar no seu pc ou vice versa
+GitHub is a Git hosting repository
+
+### GITHUB
+
+1 Criação do Repositório
+https://guides.github.com/activities/hello-world/
+In the upper right corner, next to your avatar or identicon, click  and then select New repository.
+Name your repository hello-world.
+Write a short description.
+Select Initialize this repository with a README.
+poderia adicionar um .gitignore
+
+2 Criação do Branch inicial
+Um Branch é tipo a versão que você está trabalhando, seria algo como gustavao-temp.txt gustavao-oficial.txt cada um desses files seria um branch
+Sempre que cria o repository, já é criado um branch master
+Para criar um novo branch 
+Go to your new repository hello-world.
+Click the drop down at the top of the file list that says branch: master.
+Type a branch name, readme-edits, into the new branch text box.
+Select the blue Create branch box or hit “Enter” on your keyboard
+agora dá pra ficar mudando de branch só clicando no botão de branch:
+On GitHub, saved changes are called commits. Each commit has an associated commit message
+
+3 Abrir Pull request
+Serve para pedir reviews, mostrar os diffs, e permitir o futuro merge, se possivel. Normalmente terão commits antes e depois do pull request antes de um merge. os commits antes do pull request são de quem fez as modificações e esta propondo, os commits depois do pull são depois da review
+você pode mencionar pessoas com @
+Click the  Pull Request tab, then from the Pull Request page, click the green New pull request button.
+In the Example Comparisons box, select the branch you made, readme-edits, to compare with master (the original).
+When you’re satisfied that these are the changes you want to submit, click the big green Create Pull Request button.
+Give your pull request a title and write a brief description of your changes.
+
+4 Merge your Pull Request
+com a pull request, vai aparecer 1 na aba de pull requests
+você clica na aba de pull requests, clica na pull, e clica no botao verde de Merge pull request
+Click the green Merge pull request button to merge the changes into master.
+Click Confirm merge.
+Go ahead and delete the branch, since its changes have been incorporated, with the Delete branch button in the purple box.
+depois de dar o merge sempre é bom deletar o branch, já que ele não será mais usado
+
+GIT
+https://guides.github.com/introduction/git-handbook/
+para jogar seu codigo no github, melhor o repositorio estar vazio
+para instalar o git e habilitar > git na command line, 
+https://git-scm.com/downloads
+se ja tem git instalado, para atualizar usar

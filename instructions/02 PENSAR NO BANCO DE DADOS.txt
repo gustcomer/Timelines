@@ -1,0 +1,10 @@
+02 PENSAR NO BANCO DADOS
+- Pensar no nome do banco de dados
+- Quais resources vai ter? papel, opções, macro
+- Quais atributos cada resource?
+	Papeis: ticker, preço
+	Opções: ticker, vencimento, strike, preço
+	Macro: juros
+	Ponto: data, descrição
+- Quais relationships?
+	Opções tem um papel

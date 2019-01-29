@@ -1,0 +1,5 @@
+- instalar sublime
+- instalar pacotes de bootstrap de autocomplete e snippets @de_gouville
+https://packagecontrol.io/packages/Bootstrap%204%20Snippets
+- dar uma olhada em template e themes de bootstrap
+https://startbootstrap.com/template-categories/all/
