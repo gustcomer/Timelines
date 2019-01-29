@@ -69,7 +69,15 @@ sempre que modificar alguma coisa usar
 > git add .
 > git status # se quiser
 > git commit -m "mudando um pouco o laravel"
-> git push -u origin master
+> git push -u origin master # mas só funciona se der o remote add antes
+
+O salvamento do codigo da versao se divide em dois estagios
+1. git add # é o staging
+2. git commit # arquiva a versão efetivamente
+
+para armazenar o user e o password
+> git config credential.helper store
+> git pull
 
 > git init
 > git status
