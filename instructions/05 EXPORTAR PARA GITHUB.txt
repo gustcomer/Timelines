@@ -79,6 +79,11 @@ para armazenar o user e o password
 > git config credential.helper store
 > git pull
 
-> git init
-> git status
+para ver como estava o código em uma versão, usar
+> git checkout b650e4b
+e para voltar pra versão atual
+> git checkout master
 
+para dar o nome de uma versão, usar
+git tag -a v1.0 -m "Stable version of the website"
+onde -a flag é annotated e -m é descriptive message
