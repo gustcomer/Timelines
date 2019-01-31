@@ -1,0 +1,76 @@
+- Pensar em como vai ser o conteudo da welcome
+- Preparar uma blade de welcome
+- Preparar uma blade de layout
+- usar a estrutura basica de uma page bootstrap
+https://www.w3schools.com/bootstrap4/tryit.asp?filename=trybs_gs_container&stacked=h
+
+- inserir uma navbar escura
+
+usar a referencia de bootstrap
+https://www.w3schools.com/bootstrap4/default.asp
+
+The .container class provides a responsive fixed width container
+The .container-fluid class provides a full width container, spanning the entire width of the viewport
+
+.col- (extra small devices - screen width less than 576px)
+.col-sm- (small devices - screen width equal to or greater than 576px)
+.col-md- (medium devices - screen width equal to or greater than 768px)
+.col-lg- (large devices - screen width equal to or greater than 992px)
+.col-xl- (xlarge devices - screen width equal to or greater than 1200px)
+
+h1 Bootstrap heading (2.5rem = 40px)
+h2 Bootstrap heading (2rem = 32px)
+h3 Bootstrap heading (1.75rem = 28px)
+h4 Bootstrap heading (1.5rem = 24px)
+h5 Bootstrap heading (1.25rem = 20px)
+h6 Bootstrap heading (1rem = 16px)
+
+text colors are: .text-muted, .text-primary, .text-success, .text-info, .text-warning, .text-danger, .text-secondary, .text-white, .text-dark, .text-body (default body color/often black) and .text-light:
+
+background colors are: .bg-primary, .bg-success, .bg-info, .bg-warning, .bg-danger, .bg-secondary, .bg-dark and .bg-light.
+
+The .table class adds basic styling to a table:
+The .table-striped class adds zebra-stripes to a table:
+The .table-bordered class adds borders on all sides of the table and cells:
+The .table-hover class adds a hover effect (grey background color) on table rows:
+The .table-dark class adds a black background to the table:
+Combine .table-dark and .table-striped to create a dark, striped table:
+
+The .rounded class adds rounded corners to an image:
+The .rounded-circle class shapes the image to a circle:
+The .img-thumbnail class shapes the image to a thumbnail (bordered):
+Float an image to the right with the .float-right class or to the left with .float-left:
+Center an image by adding the utility classes .mx-auto (margin:auto) and .d-block (display:block) to the image:
+
+A jumbotron indicates a big grey box for calling extra attention to some special content or information.
+Use a <div> element with class .jumbotron to create a jumbotron:
+If you want a full-width jumbotron without rounded borders, add the .jumbotron-fluid class and a .container or .container-fluid inside of it:
+
+Alerts are created with the .alert class, followed by one of the contextual classes .alert-success, .alert-info, .alert-warning, .alert-danger, .alert-primary, .alert-secondary, .alert-light or .alert-dark:
+<div class="alert alert-success">
+  <strong>Success!</strong> Indicates a successful or positive action.
+</div>
+Add the alert-link class to any links inside the alert box to create "matching colored links":
+
+<button type="button" class="btn">Basic</button>
+<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-secondary">Secondary</button>
+<button type="button" class="btn btn-success">Success</button>
+<button type="button" class="btn btn-info">Info</button>
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-dark">Dark</button>
+<button type="button" class="btn btn-light">Light</button>
+<button type="button" class="btn btn-link">Link</button>
+The button classes can be used on an <a>, <button>, or <input> element:
+
+Use a <div> element with class .btn-group to create a button group:
+
+lembrar que a navbar sobrepoe o conteúdo do fundo
+
+Add to your CSS:
+body { 
+    padding-top: 65px; 
+}
+From the Bootstrap docs:
+The fixed navbar will overlay your other content, unless you add padding to the top of the body.

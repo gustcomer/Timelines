@@ -85,5 +85,12 @@ e para voltar pra versão atual
 > git checkout master
 
 para dar o nome de uma versão, usar
-git tag -a v1.0 -m "Stable version of the website"
+> git tag -a v1.0 -m "Stable version of the website"
 onde -a flag é annotated e -m é descriptive message
+pode dar checkout numa flag
+> git checkout 2.0.0
+
+para criar um novo branch
+> git branch crazy
+para mover-se para esse novo branch
+> git checkout crazy

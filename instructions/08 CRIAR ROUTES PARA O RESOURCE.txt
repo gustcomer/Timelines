@@ -1,4 +1,4 @@
-05 CRIAR ROUTES PARA O RESOURCE
+08 CRIAR CRUD
 //um atalho é
 Route::resource('projects', 'ProjectsController');
 /*

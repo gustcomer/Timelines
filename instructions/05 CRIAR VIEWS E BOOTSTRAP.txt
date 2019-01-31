@@ -1,3 +1,0 @@
-- Pensar em como vai ser o conteudo da welcome
-- Preparar uma blade de welcome
-- Preparar uma blade de layout

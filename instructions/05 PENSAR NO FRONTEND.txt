@@ -3,3 +3,16 @@
 https://packagecontrol.io/packages/Bootstrap%204%20Snippets
 - dar uma olhada em template e themes de bootstrap
 https://startbootstrap.com/template-categories/all/
+
+uma solução para o front end seria navbar superior com botão de Home, um menu dropdown para Timelines [Listar Adicionar Editar Deletar] e um item de Comparar
+
+exemplos
+https://startbootstrap.com/template-categories/all/
+
+exemplo 1
+codigo: https://github.com/BlackrockDigital/startbootstrap-scrolling-nav/blob/master/index.html
+preview: https://blackrockdigital.github.io/startbootstrap-scrolling-nav/
+
+exemplo 2 Heroic Features
+codigo: https://github.com/BlackrockDigital/startbootstrap-heroic-features/blob/master/index.html
+preview: https://blackrockdigital.github.io/startbootstrap-heroic-features/
