@@ -1,15 +1,24 @@
 ﻿@extends('layout')
 
 @section('content')
-	<h1 class="title">Projects</h1>
+    <div class="container">
+        <h1 class="title">Timeline</h1>
     
-    <ul>
-        @foreach ($projects as $project)
-            <li>
-                <a href="/projects/{{ $project->id }}">
-                    {{ $project->title }}
-                </a>
-            </li>
-        @endforeach
-    </ul>
+        <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+            <th>Data</th>
+            <th>Evento</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($pontos as $ponto)
+                <tr>
+                    <td>{{ $ponto->data }}</td>
+                    <td>{{ $ponto->descricao }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+        </table>
+    </div>
 @endsection

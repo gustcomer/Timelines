@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Ponto;
+
 class PontosController extends Controller
 {
     /**
@@ -13,7 +15,9 @@ class PontosController extends Controller
      */
     public function index()
     {
-        //
+        $pontos = Ponto::all();
+        
+        return view('pontos.index',compact('pontos'));
     }
 
     /**
@@ -23,7 +27,7 @@ class PontosController extends Controller
      */
     public function create()
     {
-        //
+        return view('pontos.create');
     }
 
     /**
@@ -34,7 +38,13 @@ class PontosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $attributes = $request->validate([
+            'data' => ['required'],
+            'descricao' => ['required','min:5']
+        ]);
+        Ponto::create($attributes);
+
+        return redirect('/pontos');
     }
 
     /**
@@ -54,9 +64,9 @@ class PontosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Ponto $ponto)
     {
-        //
+        return view('pontos.edit', compact('ponto'));
     }
 
     /**
@@ -66,9 +76,11 @@ class PontosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Ponto $ponto)
     {
-        //
+        $ponto->update(request(['data', 'descricao']));
+
+        return redirect('/pontos');
     }
 
     /**
@@ -77,8 +89,10 @@ class PontosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Ponto $ponto)
     {
-        //
+        $ponto->delete();
+        
+        return redirect('/pontos');
     }
 }

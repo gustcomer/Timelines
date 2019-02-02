@@ -19,15 +19,15 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 	<div class="container">
-		<a class="navbar-brand" href="#">Home</a>
+		<a class="navbar-brand" href="/">Home</a>
 		<ul class="navbar-nav">
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
 					Timelines
 				</a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">Listar</a>
-					<a class="dropdown-item" href="#">Adicionar</a>
+					<a class="dropdown-item" href="/pontos">Listar</a>
+					<a class="dropdown-item" href="/pontos/create">Adicionar</a>
 					<a class="dropdown-item" href="#">Editar</a>
 					<a class="dropdown-item" href="#">Excluir</a>
 				</div>

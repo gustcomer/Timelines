@@ -1,5 +1,6 @@
 04 POVOAR UM BANCO DE DADOS
 > php artisan tinker
+>>> $ponto = new App\Ponto 
 >>> $ponto->data = "1984-01-12"
 >>> $ponto->descricao = "Nascimento de GutoW"
 >>> $ponto->save()

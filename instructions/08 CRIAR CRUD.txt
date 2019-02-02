@@ -1,4 +1,11 @@
 08 CRIAR CRUD
+
+Criar controler index, view index com tables em bootstrap e linkar botão listar
+Criar controler create, controler store (post), view create com formulario bootstrap e linkar
+	Pro store ajustar mass asignment
+Criar edit (view) e update (patch request)
+Criar a delete
+
 //um atalho é
 Route::resource('projects', 'ProjectsController');
 /*
