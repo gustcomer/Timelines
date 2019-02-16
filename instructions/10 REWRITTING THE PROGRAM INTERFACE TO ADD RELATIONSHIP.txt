@@ -1,0 +1,4 @@
+Escrever a interface é sempre uma boa
+- Agora temos Timelines e Pontos
+- A página principal vai apresentar uma table com as Timelines, e permitir view edit e delete em cada timeline
+ir fazendo aos poucos o CRUD de timelines E pontos que dá tudo certo

@@ -15,4 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('timelines', 'TimelinesController');
+
 Route::resource('pontos', 'PontosController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

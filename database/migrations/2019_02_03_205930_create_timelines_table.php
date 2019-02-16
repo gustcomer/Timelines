@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePontosTable extends Migration
+class CreateTimelinesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreatePontosTable extends Migration
      */
     public function up()
     {
-        Schema::create('pontos', function (Blueprint $table) {
+        Schema::create('timelines', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('timeline_id');
-			$table->date('data');
-			$table->text('descricao');
+            $table->unsignedInteger('owner_id');
+            $table->string('nome');
             $table->timestamps();
+
+            $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -29,6 +30,6 @@ class CreatePontosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pontos');
+        Schema::dropIfExists('timelines');
     }
 }

@@ -1,0 +1,31 @@
+- já criamos a primeira variável do banco de dados que era Pontos, agora precisamos criar Timelines
+- Para Timelines vou tentar criar tudo de uma vez, factory, model e resources controller
+> php artisan help make:model
+- lembrar que um 
+> php artisan make:model Task -a
+equivale a um
+> php artisan make:model Task -m -f
+- vamos agora criar um resource (Timelines) que vai se relacionar com outro (Pontos), cria o model, a migrate e a factory com: (na verdade acho que é melhor trocar a posição de Timeline com as options)
+> php artisan make:model Timeline -m -f
+um make:model -r é diferente de um make:controller -r
+- lembrar que o controller chama o model, mas não necessariamente esta associado a um model
+
+ESCREVER EXATAMENTE O QUE TU QUER FAZER SEMPRE AJUDA
+- Uma Timeline tem varios Pontos. ("A Timeline has Pontos") ("A Ponto belongs to a Timeline")
+> php artisan make:controller -r TimelinesController não recomendo criar um controller com um make:model pra criar controller sugiro
+*sempre que quiser reescrever um programa, começa mudando os models, depois tu pensa nas views
+- como Ponto pertence a Timeline, precisamos criar essa conexão no database. Adicionar foreign key no schema de Pontos
+$table->unsignedInteger('timeline_id');
+para criar a relation, colocar no model Timeline a function
+    public function pontos ()
+    {
+    	return $this->hasMany(Ponto::class);
+    }
+    o engraçado é como a foreign key é conectada sem precisar especificar que é foreign key
+    - o laravel descobre a foreign key pelos nome, mas se quiser pode especificar com
+	return $this->hasOne('App\Phone', 'foreign_key');
+- sempre que muda alguma coisa no codigo, tem que dar reboot no Tinker se quiser testar
+
+- Timeline tem nome
+- Pontos tem data e descricao, e pertencem a uma Timeline
+- Quando clicamos em uma Timeline ela abre e aparece todos os pontos e um formulário inline para adicionar um novo ponto 

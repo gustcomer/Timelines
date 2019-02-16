@@ -39,12 +39,13 @@ class PontosController extends Controller
     public function store(Request $request)
     {
         $attributes = $request->validate([
+            'timeline_id' => ['required'],
             'data' => ['required'],
             'descricao' => ['required','min:5']
         ]);
         Ponto::create($attributes);
 
-        return redirect('/pontos');
+        return redirect('/timelines/'.$attributes['timeline_id']);
     }
 
     /**
@@ -66,7 +67,8 @@ class PontosController extends Controller
      */
     public function edit(Ponto $ponto)
     {
-        return view('pontos.edit', compact('ponto'));
+        $timeline = $ponto->timeline;
+        return view('pontos.edit', compact('ponto','timeline'));
     }
 
     /**
@@ -80,7 +82,7 @@ class PontosController extends Controller
     {
         $ponto->update(request(['data', 'descricao']));
 
-        return redirect('/pontos');
+        return redirect('/timelines/'.$ponto->timeline->id);
     }
 
     /**
@@ -89,10 +91,11 @@ class PontosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ponto $ponto)
+    public function destroy(Request $request, Ponto $ponto)
     {
+        $id = $ponto->timeline->id; // timeline()->id não funciona
         $ponto->delete();
         
-        return redirect('/pontos');
+        return redirect('/timelines/'.$id);
     }
 }

@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="container">
-        <h1 class="title">Timeline</h1>
-    
+        <h1 class="title">{{ $timeline->nome }}</h1>
+
         <table class="table table-striped table-hover">
         <thead>
             <tr>
@@ -33,4 +33,20 @@
         </tbody>
         </table>
     </div>
+
+<div class="container">
+    <form method="POST" action="/pontos">
+        {{ csrf_field() }}
+        <input type="hidden" name="timeline_id" value={{ $timeline->id }}>
+        <div class="form-group">
+            <label for="data">Data:</label>
+            <input type="date" class="form-control" id="data" placeholder="Data" name="data">
+        </div>
+        <div class="form-group">
+            <label for="descricao">Descrição:</label>
+            <input type="text" class="form-control" id="descricao" placeholder="Descrição" name="descricao">
+        </div>
+        <button type="submit" class="btn btn-primary">Adicionar</button>
+    </form>
+</div>
 @endsection

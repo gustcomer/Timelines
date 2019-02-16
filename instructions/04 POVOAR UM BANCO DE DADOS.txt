@@ -4,6 +4,7 @@
 >>> $ponto->data = "1984-01-12"
 >>> $ponto->descricao = "Nascimento de GutoW"
 >>> $ponto->save()
+- se quiser criar uma nova entry no banco de dados, tem que dar um novo comando new
 - Se ponto tiver algum campo não mapeado no banco de dados, dá problema
 - a data é passada como um string mas tem que estar num formato valido senão dá erro
 >>> App\Ponto::all()

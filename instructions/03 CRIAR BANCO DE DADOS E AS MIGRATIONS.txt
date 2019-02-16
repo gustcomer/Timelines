@@ -6,6 +6,14 @@ x criar as tabelas com o migrate, que é um comando do eloquent
 > php artisan make:migration create_papeis_table
 - na verdade é melhor criar os Eloquent models com a opção de gerar uma database migration
 > php artisan make:model Ponto -m
+- engraçado como foram criados os models mas nao foram criados nem factory -f nem controller
+- não foi criado controller pq foi criado resource
+- para criar o resource usar
+> php artisan make:controller -r PontosController
+e adicionar no web
+Route::resource('pontos', 'PontosController');
+- que relaciona a uri ao PontosController, e dentro do controller usamos o model para acessar banco de dados
+- a opção -a de um model all é bom poderosa pois cria um resource model, uma factory e uma migration
 - se quiser deletar alguma coisa criada acima, deleta o model e a migration
 - Para cada column, escolher um available column type em
 https://laravel.com/docs/5.7/migrations#creating-tables

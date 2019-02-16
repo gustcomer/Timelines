@@ -9,4 +9,9 @@ class Ponto extends Model
     protected $guarded = [
 
 	];
+
+    public function timeline ()
+    {
+    	return $this->belongsTo(Timeline::class);
+    }
 }

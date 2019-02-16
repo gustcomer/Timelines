@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-    	<h1 class="title">Editar Ponto</h1>
+    	<h1 class="title">Editar Ponto - Timeline: {{ $timeline->nome }}</h1>
         
         <form method="POST" action="/pontos/{{ $ponto->id }}"> 
         	{{ method_field('PATCH') }}
@@ -18,18 +18,6 @@
             <div class="field">
                 <div class="control">
                     <button type="submit" class="button is-link">Atualizar Ponto</button>
-                </div>
-            </div>
-        </form>
-    </div>
-
-    <div class="container">
-        <form method="POST" action="/pontos/{{ $ponto->id }}">
-            {{ method_field('DELETE') }}
-            {{ csrf_field() }}
-            <div class="field">
-                <div class="control">
-                    <button type = "submit" class="button">Deletar Ponto</button>
                 </div>
             </div>
         </form>

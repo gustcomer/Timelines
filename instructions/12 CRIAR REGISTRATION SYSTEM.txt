@@ -1,0 +1,50 @@
+1) digitar
+> php artisan make:auth
+o que faz esse comando?
+- cria varias blades
+- adiciona linhas de routes
+- se quiser ver o que foi adicionado por Auth::routes(); pode dar comando
+> php artisan route:list
+PS C:\Projetos\Timeline> php artisan route:list
++--------+-----------+---------------------------+-------------------+------------------------------------------------------------------------+--------------+
+| Domain | Method    | URI                       | Name              | Action                                                                 | Middleware   |
++--------+-----------+---------------------------+-------------------+------------------------------------------------------------------------+--------------+
+|        | GET|HEAD  | /                         |                   | Closure                                                                | web          |
+|        | GET|HEAD  | api/user                  |                   | Closure                                                                | api,auth:api |
+|        | GET|HEAD  | home                      | home              | App\Http\Controllers\HomeController@index                              | web,auth     |
+|        | GET|HEAD  | login                     | login             | App\Http\Controllers\Auth\LoginController@showLoginForm                | web,guest    |
+|        | POST      | login                     |                   | App\Http\Controllers\Auth\LoginController@login                        | web,guest    |
+|        | POST      | logout                    | logout            | App\Http\Controllers\Auth\LoginController@logout                       | web          |
+|        | POST      | password/email            | password.email    | App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail  | web,guest    |
+|        | POST      | password/reset            | password.update   | App\Http\Controllers\Auth\ResetPasswordController@reset                | web,guest    |
+|        | GET|HEAD  | password/reset            | password.request  | App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm | web,guest    |
+|        | GET|HEAD  | password/reset/{token}    | password.reset    | App\Http\Controllers\Auth\ResetPasswordController@showResetForm        | web,guest    |
+|        | GET|HEAD  | pontos                    | pontos.index      | App\Http\Controllers\PontosController@index                            | web          |
+|        | POST      | pontos                    | pontos.store      | App\Http\Controllers\PontosController@store                            | web          |
+|        | GET|HEAD  | pontos/create             | pontos.create     | App\Http\Controllers\PontosController@create                           | web          |
+|        | PUT|PATCH | pontos/{ponto}            | pontos.update     | App\Http\Controllers\PontosController@update                           | web          |
+|        | GET|HEAD  | pontos/{ponto}            | pontos.show       | App\Http\Controllers\PontosController@show                             | web          |
+|        | DELETE    | pontos/{ponto}            | pontos.destroy    | App\Http\Controllers\PontosController@destroy                          | web          |
+|        | GET|HEAD  | pontos/{ponto}/edit       | pontos.edit       | App\Http\Controllers\PontosController@edit                             | web          |
+|        | GET|HEAD  | register                  | register          | App\Http\Controllers\Auth\RegisterController@showRegistrationForm      | web,guest    |
+|        | POST      | register                  |                   | App\Http\Controllers\Auth\RegisterController@register                  | web,guest    |
+|        | POST      | timelines                 | timelines.store   | App\Http\Controllers\TimelinesController@store                         | web          |
+|        | GET|HEAD  | timelines                 | timelines.index   | App\Http\Controllers\TimelinesController@index                         | web          |
+|        | GET|HEAD  | timelines/create          | timelines.create  | App\Http\Controllers\TimelinesController@create                        | web          |
+|        | DELETE    | timelines/{timeline}      | timelines.destroy | App\Http\Controllers\TimelinesController@destroy                       | web          |
+|        | PUT|PATCH | timelines/{timeline}      | timelines.update  | App\Http\Controllers\TimelinesController@update                        | web          |
+|        | GET|HEAD  | timelines/{timeline}      | timelines.show    | App\Http\Controllers\TimelinesController@show                          | web          |
+|        | GET|HEAD  | timelines/{timeline}/edit | timelines.edit    | App\Http\Controllers\TimelinesController@edit                          | web          |
++--------+-----------+---------------------------+-------------------+------------------------------------------------------------------------+--------------+
+
+- tem que adicionar owner id no timelines
+- se certificar que para criar uma timeline o usuário tem que estar registrado. pode colocar esse middleware necessário tanto no controller quanto no routes file
+- o index method só vai mostrar timelines do usuario autenticado
+- o redirect do login controller vai levar para /timelines
+- resolver problema de um user esperto acessar timelines de outro digitando o url.
+	a maneira mais facil é usando
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+	mas esse tipo de problema pode ser resolvido usando policy, \Gate, @can, $this->authorize(), etc
