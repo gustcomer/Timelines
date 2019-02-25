@@ -1,0 +1,34 @@
+- O que é jailshell SSH?
+	Jailshell provides users a limited privilege to ssh into their own home directory and manage all the files under their cPanel user's ownership. 
+	If your account is on a shared server, for security measures, we cannot provide you with full bash functionality. 
+	Jailshell will read .bashrc, .bash_profile under your home directory. You can run most of the linux commands to manage your account. You have limited ability or no ability to compile, or make any server-wide installations or changes.
+
+- O que é um bashrc e um bash_profile?
+	The .bashrc file is a script that is executed whenever a new terminal session is started in interactive mode. This is what happens when you open a new terminal window by pressing Ctrl+Alt+T, or just open a new terminal tab.
+	By contrast a terminal session in login mode will ask you for user name and password and execute the ~/.bash_profile script. This is what takes place, for instance, when you log on to a remote system through SSH.
+
+- Acesso SSH
+	Hostname: IP Do Site 108.167.171.66
+	Port: 2222
+	user: carte436
+	pass: gust-caef
+	However, one important thing that you should know is; use port 2083 for accessing via ssh.
+	Para liberar o ssh tem qu fazer uma requisição no site do hostgator, é tudo automatizado, vi isso no site:
+	https://suporte.hostgator.com.br/hc/pt-br/articles/115004145214-Como-instalar-o-Laravel-na-HostGator-
+		Olá Gustavo,
+
+		O acesso SSH foi habilitado para sua conta. 
+
+		No nome do servidor use seu próprio domínio ou IP, as credenciais são seu usuário e senha do cPanel e a porta para acesso é 2222.
+
+		Caso não possua um cliente SSH, você pode fazer o download.
+
+		Conte com a gente.
+		Patricia M. - HostGator
+
+- para atuaizar o php do servidor
+https://stackoverflow.com/questions/39643805/need-to-run-composer-update-on-ssh-on-hostgator-but-php-v-to-low
+- na verdade não existe atualização de php, todas versões já estão lá, voce apenas escolhe com qual quer compilar
+	da pra mudar o alias php para usar outra versao, segundo o stack acima
+	tem uma opção melhor, digitar direto o endereço do php
+	$ /opt/php71/bin/php artisan

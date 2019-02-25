@@ -22,3 +22,6 @@ Route::resource('pontos', 'PontosController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/comparar', 'CompararController@index')->middleware('auth');
+Route::post('/comparar', 'CompararController@show');

@@ -1,0 +1,57 @@
+https://www.howtoforge.com/vim-basics
+
+para abrir um arquivo existente, digitar no bash
+> vim arquivo.txt
+
+Vim has a particular working method, there are two main modes: the command mode and the other modes.
+para ir para o command mode, vai com [ESC]
+
+aberto o arquivo, se quiser sair de um arquivo que não foi modificado
+:q
+se o arquivo tiver sido modificado mas você quiser descartar as mudanças
+:q!
+se quiser escrever as mudanças
+:w
+se quiser inserir coisas no arquivo
+:i
+se quiser andar o cursos para inserir em determinado lugar usar hjkl
+	[h] esquerda
+	[j] baixo - dica a j key parece uma down arrow
+	[k] cima
+	[l] direita
+o comando A é Append e começa a adicionar coisa no fim da linha
+o comando a começa a adicionar coisa no fim da palavra
+$ te posiciona no fim da linha
+x deleta a palavra
+i inserte texto no lugar do cursor
+:wq salva e sai
+
+dw deleta palavra
+d$ deleta até o final da linha
+
+comando + motion eg: d e
+
+2w o cursor pula duas words
+w move o cursor uma palavra
+0 vai pro começo da linha
+
+dd deleta linha
+5dd deleta 5 linhas
+
+u volta ultima ação
+2 u volta duas últimas ações
+U volta o estado anterior da linha
+
+p  to put previously deleted text after the cursor.
+
+CTRL-G to show your location in the file and the file status.
+G  to move to a line in the file. **
+
+/ ... é o find
+  to find a matching ),], or }
+
+:w FILENAME save the changes made to the text, type
+
+
+vimtutor é um tutorial interessante para dar uma olhada inicial
+

@@ -48,3 +48,4 @@ PS C:\Projetos\Timeline> php artisan route:list
         $this->middleware('auth');
     }
 	mas esse tipo de problema pode ser resolvido usando policy, \Gate, @can, $this->authorize(), etc
+- refactor no navbar de usuarios, com @guest, etc

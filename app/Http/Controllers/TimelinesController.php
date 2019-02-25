@@ -21,11 +21,6 @@ class TimelinesController extends Controller
 
     public function index()
     {
-        // dd(auth()->id()); // retorna null se não estiver autenticado
-        // dd(auth()->user()); // retorna name, id, pass token etc. ou null
-        // auth()->user(); TRUE signed in FALSE guest
-        // auth()->guest(); TRUE if guest
-        //$timelines = Timeline::all();
         $timelines = Timeline::where('owner_id',auth()->id())->get();
         
         return view('timelines.index',compact('timelines'));
@@ -73,7 +68,8 @@ class TimelinesController extends Controller
         // if($timeline->owner_id !== auth()->id()) {
         //     abort(403);
         // }
-        abort_if($timeline->owner_id !== auth()->id(),403);
+        // dd($timeline->owner_id,auth()->id()); aqui dava pau
+        abort_if($timeline->owner_id != auth()->id(),403);
         // abort_if(! auth()->user()->owns($timeline)); nem funciona
 
         $pontos = Timeline::find($id)->pontos;

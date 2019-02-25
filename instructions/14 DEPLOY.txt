@@ -1,0 +1,89 @@
+- O primeiro passo é pegar o caderninho cinza e dar uma olhada em algumas senhas.
+- Lembrar da hostgator.com.br que é uma provedora de hospedagem compartilhada : o plano M permite múltiplos sites e domínios
+- olhar registro.br que é um site de registro de domínios
+- a pergunta é, registrar primeiro o domínio ou resolver a questão da provedora de hospedagem?
+- sei lá, registra o domínio que é mais fácil
+	no registro.br, primeiro você registra o domínio e em seguida faz o pagamento
+	Valor: R$ 40,00 
+	Período Contratado:  1 ano, de 19/02/2019 até 18/02/2020
+- O hostgator te dá opção de "Registro de um Domínio", mas acabei fazendo isso com o registro.br
+	O plano M do hostgator na verdade não aceita múltiplos sites, e sim multiplos domínios
+	Na verdade o site possui um domínio inicial e o resto são domínios de complementos.
+	Na aba de criar domínios de complemento no hostgator fica:
+	Nome do novo domínio: thetimelines.com.br
+	Subdomínio: thetimelines
+	Raiz do documento: thetimelines.com.br
+	x criar um a conta ftp associada a esse dominio de complementos
+	nome de usuário do FTP: thetimelines
+	senha: gust-timelines
+	depois de resolvido o hostgator, vai no painelzinho do lado e procura por informações do servidor, esses dados serão usados no registro.br
+	no registro.br abre o thetimelines.com.br, vai em atualizar DNS e atualiza o master e o slave. a atualização demora até duas horas. só isso é suficiente para o site ir pro ar. abrir 3 horas depois.
+	se precisar acessar antes das duas horas e não der certo tem que dar uma limpada no seu DNS cache com
+	> ipconfig /flushdns
+	aprender a usar ipconfig um dia
+	engraçado como com os procedimentos até aqui ele entendeu que o site era o diretorio publico era thetimelines.com.br
+	se copiar um site simples como o carteiraeficiente para o diretório, ele reconhece aquele site e que tem que abrir o index.php
+- O objetivo agora é jogar o laravel project no ar, eu prevejo muitos problemas pois precisamos rodar as migrations no webserver para criar o banco de dados, vai ser tenso
+- Existem alguns artigos sobre como fazer deploy de uma aplicação para um shared host service
+. https://cursos.alura.com.br/forum/topico-colocar-um-projeto-laravel-em-producao-35003
+. https://medium.com/laravel-news/the-simple-guide-to-deploy-laravel-5-application-on-shared-hosting-1a8d0aee923e
+. http://blog.netgloo.com/2016/01/29/deploy-laravel-application-on-shared-hosting/
+What is Shared Hosting? Shared hosting allows multiple websites to utilize a single server. Usually, you’ll have no idea who or what websites you’re sharing the resources of a server with. Each customer will usually have a limit on the total amount of server resources they can use, but this will be defined by your hosting package.
+- Carregar pastas como a do aap inteiro de laravel pro servidor é difícil, então usaremos servidor de ftp e não o cpanel
+- Para usar ftp, abrir o cliente de ftp, filezilla
+. aqui tem um resumo https://suporte.hostgator.com.br/hc/pt-br/articles/115004464493-Como-utilizar-o-FTP-com-o-FileZilla
+mas resumindo, ver os dados no cpanel no canto direito
+a. Host: Insira o IP do seu Site, ou o Server Hostname ou ainda o seu domínio; 
+	IP Do Site 108.167.171.66
+	Server Hostname br312.hostgator.com.br
+	Domínio primário carteiraeficiente.com.br
+b. Nome de usuário: Insira o usuário do seu cPanel;
+	Usuário Atual carte436
+c. Senha: Insira a senha do seu cPanel;
+	lembrar que o cpanel tem um user e pass próprios
+	user: carte436
+	pass: gust-caef (era C59x87lWkc)
+d. Porta: Por padrão, utilize 21;
+- jogar o programa todo no ar levou 1h50, por isso precisa de uma ferramenta de deploy como forge
+- depois de jogado no ar e acessado a pasta /public, o site emite o seguinte erro:
+Parse error: syntax error, unexpected '?' in /home/carte436/thetimelines.com.br/Timeline/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 500
+o que evidencia versão desatualizada do PHP. De fato a versão do site é 
+Pacote de hospedagem	M_100
+Nome do servidor	br312
+Versão do cPanel	70.0 (build 66)
+Versão do Apache	2.4.38
+Versão do PHP	5.2.17
+Versão do MySQL	5.6.41-84.1
+Arquitetura	x86_64
+Sistema operacional	linux
+Endereço IP dedicado	108.167.171.66
+Caminho para envio de email	/usr/sbin/sendmail
+Caminho para Perl	/usr/bin/perl
+Versão do Perl	5.10.1
+Versão do kernel	3.10.0-862.3.2.4.ELK.el6.x86_64
+- Para atualizar a versão do PHP do hostgator, no gerenciador MultiPHP
+https://suporte.hostgator.com.br/hc/pt-br/articles/360006664913-Como-alterar-a-vers%C3%A3o-do-PHP
+- esse problema da linha 500 do laravel é bem conhecido: https://stackoverflow.com/questions/53748977/laravel-php-parse-error-syntax-error-unexpected-in-vendor-laravel-framew que tal dar um server reboot?
+- eu mudei a versão do php no hostgator mas o problema continuou. para tira-teima, eu criei um arquivo php com o codigo
+<?php
+echo 'Current PHP version: ' . phpversion();
+?>
+Current PHP version: 5.6.30
+In WHM's MultiPHP Manager interface (WHM >> Home >> Software >> MultiPHP Manager), the term Inherit refers to how Apache determines a domain or virtual host's PHP version. When you set an account or domain to Inherit, Apache uses the PHP version that exists in the first .htaccess file that it finds in the domain's file structure.
+- Tive um problema estranho, de mudar o .htaccess do diretorio roots principal e na hora de clicar um .php ele não executar o php e sim fazer download do arquivo.
+	Changes to .htaccess are immediate and do not require a restart.
+	Apparently, some servers only check .htaccess files periodically. I've found this to be the case w/ our AWS host.
+	No chrome é engraçado pois as vezes eu atualizo o .htaccess mas ele não atualiza, então é preciso limpar o cache
+	https://support.google.com/accounts/answer/32050?co=GENIE.Platform%3DDesktop&hl=en
+	A versão 7.2 do php não funcionou, mas a versão 7.1 funcionou. basta ir no .htaccess do root principal e adicionar
+	# Use PHP71
+	AddHandler application/x-httpd-php71 .php
+- Não sei ainda se ter colocado numa pasta /Timelines dentro de thetimelines.com.br foi uma boa.
+- Acho que não tem problema pois:
+- Para botar pra rodar basta colocat copiar o diretorio /Timelines/Public para /, e atualizar o index.php com
+	require __DIR__.'/Timeline/vendor/autoload.php';
+	$app = require_once __DIR__.'/Timeline/bootstrap/app.php';
+	colocando /Timeline/ ao invés de /../
+Algumas coisinhas mudam de php 7.2 pra hp 7.1, no 7.1 tive que tirar uma comparação estrita !== e colocar uma comparação !=
+	abort_if($timeline->owner_id != auth()->id(),403);
+	comparava '1' com 1 , por isso deu errado

@@ -1,0 +1,67 @@
+- Lembrar que para rodar o database, vou precisar rodar migrations, e provavelmente vou ter que fazer isso via SSH
+- O principal client de SSH é o PuTTy https://www.ssh.com/ssh/putty/download
+- Vou tentar gerar uma chave pública para acessar ssh
+user: id_rsa
+pass: gust-caef
+Generating public/private rsa key pair.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/carte436/.ssh/id_rsa.
+Your public key has been saved in /home/carte436/.ssh/id_rsa.pub.
+The key fingerprint is:
+f6:5d:50:80:ce:4d:dd:eb:95:f8:81:cb:84:98:74:89 
+The key's randomart image is:
++--[ RSA 2048]----+
+|          ..oo.. |
+|         E.o... .|
+|        .o+oo o o|
+|         oo..= +.|
+|        S   o = o|
+|       . . . + o |
+|          . .    |
+|                 |
+|                 |
++-----------------+
+- gerei a chave, mas a questão é como conectar?
+Download any SSH client like WinSCP or PuTTY.
+Enter your IP address and the port number 2222
+Log in with your cPanel username and password.
+Hostname: IP Do Site 108.167.171.66
+Port: 2222
+user: carte436
+pass: gust-caef
+However, one important thing that you should know is; use port 2083 for accessing via ssh.
+Para liberar o ssh tem qu fazer uma requisição no site do hostgator, é tudo automatizado, vi isso no site:
+https://suporte.hostgator.com.br/hc/pt-br/articles/115004145214-Como-instalar-o-Laravel-na-HostGator-
+	Olá Gustavo,
+
+	O acesso SSH foi habilitado para sua conta. 
+
+	No nome do servidor use seu próprio domínio ou IP, as credenciais são seu usuário e senha do cPanel e a porta para acesso é 2222.
+
+	Caso não possua um cliente SSH, você pode fazer o download.
+
+	Conte com a gente.
+	Patricia M. - HostGator
+
+- Para criar banco de dados no hostgator
+https://suporte.hostgator.com.br/hc/pt-br/articles/115000385293-Como-criar-um-novo-banco-de-dados-e-um-usu%C3%A1rio-atrav%C3%A9s-do-cPanel
+
+DADOS
+- para o banco de dados, tem que adicionar
+	1) um banco de dados com um nome
+	2) um usuario com user e senha
+- nome banco de dados: carte436_timelines
+- usuario do banco de dados: carte436_tl
+- senha: gust-timelines
+depois tem que adicionar o usuario carte436_tl ao banco de dados carte436_timelines de preferência com todos os privilégios
+- da pra conectar o software do mysql ao banco de dados remoto
+https://suporte.hostgator.com.br/hc/pt-br/articles/115004345714-Como-conectar-o-MySQL-ao-Workbench-
+
+- A CONFIGURAÇÃO .env DO BANCO DE DADOS REMOTO FICOU
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=carte436_timelines
+DB_USERNAME=carte436_tl
+DB_PASSWORD=gust-timelines

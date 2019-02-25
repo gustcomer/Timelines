@@ -65,7 +65,7 @@ git push -u origin master
 se quiser remover alguma coisa do remote origin
 > git remote rm origin
 
-sempre que modificar alguma coisa usar
+*** sempre que modificar alguma coisa usar
 > git add .
 > git status # se quiser
 > git commit -m "mudando um pouco o laravel"

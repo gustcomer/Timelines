@@ -1,0 +1,29 @@
+- O instalador do mingw tem a opção de instalar com MSYS, que possui varias ferramentas entre elas um bash
+- executa C:\MinGW\msys\1.0\msys.bat
+
+COMANDOS
+	cd .. , ls
+	ls -a : mostra arquivos ocultos
+	pwd: print working directory
+	set, printenv: mostra todas variáveis do sistema
+	echo: mostra coisas na tela
+		x=5
+		echo The number is $x.
+
+		The -e option is used to enable echo's interpretation of additional instances of the newline character as well as the interpretation of other special characters
+		echo -e "\n Projects: \n\n\tplan \n\tcode \n\ttest\n"
+
+		the output redirection operator (which is a rightward pointing angle bracket) >
+		echo -e "\n Project1: \n\n\tplan \n\twrite \n\ttest\n" > project1
+	less, cat: servem para ler arquivos
+		para sair do less usar q
+		https://ss64.com/bash/less.html - referencia
+		o cat joga tudo na output e nao tem page views
+- para colar no bash msys.bat basta colar com o botao direito do mouse, se a opção de edição rapida estiver ativada e para colar no putty vim:
+	Before pasting into vim, enable paste mode by entering :set paste .
+	Press I to enter insert mode. ...
+	Press the right mouse button to paste in your stuff. ...
+	Press Esc to leave insert mode, and disable paste mode using :set nopaste again.
+- para ver se existe um diretorio, basta digitar o nome do diretorio
+carte436@carteiraeficiente.com.br [~]# /opt
+-jailshell: /opt: is a directory
