@@ -1,0 +1,26 @@
+MINITAREFAS
+
+- centralizar botão de ação e inserir ação
+	In Bootstrap 4 you should use the text-center class to align inline-blocks, mas tem que ser no parent container
+	  <div class="text-center">
+        <a href="#" class="btn btn-primary btn-lg">Criar uma Timeline!</a>
+      </div>
+
+- atualizar card titles
+	https://getbootstrap.com/docs/4.0/components/card/
+	https://placeimg.com/ place image é um grande site para gerar figuras!
+	https://stackoverflow.com/questions/24794601/laravel-assets-url
+
+- ajustar a width de uma imagem
+	escolhe uma imagem com boa resolução na internet
+	abre o illustrator
+	os cards do teu bootstrap exigem uma 500x325 width:500px height:325px
+	Arquivo > Inserir > Escolhe a foto
+	Reajusta tamanho foto mantendo dimensões
+	Draw a rectangle above the raster image.
+	Select both the rectangle and the image
+	choose Object > Clipping Mask > Make.
+	na hora de exportar tem que escolher a opção usar pranchetas, senão fica uma folhonha A4 com fundo branco
+	se quiser menor qualidade, tira Incorporar perfil ICC
+	o perfil ICC seria para impressoras diferentes imprimirem igual. não serve para web
+	o perfil ICC (International Color Consortium) armazena uma série de informações, como: tintas, substrato, umidade, resolução, reticulação, calibração, papel etc.

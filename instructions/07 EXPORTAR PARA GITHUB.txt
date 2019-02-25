@@ -70,6 +70,7 @@ se quiser remover alguma coisa do remote origin
 > git status # se quiser
 > git commit -m "mudando um pouco o laravel"
 > git push -u origin master # mas só funciona se der o remote add antes
+# não precisa dar remote add pois só é necessário uma vez
 
 O salvamento do codigo da versao se divide em dois estagios
 1. git add # é o staging
